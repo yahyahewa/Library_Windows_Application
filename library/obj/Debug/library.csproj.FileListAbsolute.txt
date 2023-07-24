@@ -1,0 +1,11 @@
+P:\prj\library\library\bin\Debug\library.exe
+P:\prj\library\library\bin\Debug\library.pdb
+P:\prj\library\library\obj\Debug\library.csprojAssemblyReference.cache
+P:\prj\library\library\obj\Debug\library.login.resources
+P:\prj\library\library\obj\Debug\library.Properties.Resources.resources
+P:\prj\library\library\obj\Debug\library.csproj.GenerateResource.cache
+P:\prj\library\library\obj\Debug\library.csproj.CoreCompileInputs.cache
+P:\prj\library\library\obj\Debug\library.exe
+P:\prj\library\library\obj\Debug\library.pdb
+P:\prj\library\library\obj\Debug\library.users.resources
+P:\prj\library\library\obj\Debug\library.AddingUsers.resources

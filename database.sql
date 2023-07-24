@@ -1,0 +1,197 @@
+﻿USE [library]
+GO
+/****** Object:  Table [dbo].[books]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[books](
+	[b_id] [nvarchar](30) NOT NULL,
+	[title] [nvarchar](100) NOT NULL,
+	[tnum] [int] NOT NULL,
+	[author] [nvarchar](max) NOT NULL,
+	[numbers] [int] NOT NULL,
+	[typ] [nvarchar](max) NOT NULL,
+	[Lang] [nvarchar](max) NOT NULL,
+	[dyears] [date] NOT NULL,
+	[idupdate] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK__books__4E29C30D90590760] PRIMARY KEY CLUSTERED 
+(
+	[b_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[idupdate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UQ__books__E52A1BB3EF0F6500] UNIQUE NONCLUSTERED 
+(
+	[title] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[j_o_b]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[j_o_b](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[o_id] [nvarchar](30) NOT NULL,
+	[b_id] [nvarchar](30) NOT NULL,
+	[frm] [datetime] NOT NULL,
+	[to_] [datetime] NOT NULL,
+	[back] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[o_ph]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[o_ph](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[o_id] [nvarchar](30) NOT NULL,
+	[email] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[oemail]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[oemail](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[oid] [nvarchar](30) NOT NULL,
+	[email] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[orders]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[orders](
+	[id] [nvarchar](30) NOT NULL,
+	[fname] [nvarchar](max) NOT NULL,
+	[sname] [nvarchar](max) NOT NULL,
+	[tname] [nvarchar](max) NOT NULL,
+	[work] [nvarchar](max) NOT NULL,
+	[loc] [nvarchar](max) NOT NULL,
+	[idupdate] [int] IDENTITY(1,1) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[idupdate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[u_email]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[u_email](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id_user] [nvarchar](30) NOT NULL,
+	[email] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[u_ph]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[u_ph](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[id_us] [nvarchar](30) NOT NULL,
+	[phnum] [nvarchar](max) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[users]    Script Date: 6/24/2021 4:43:08 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[users](
+	[username] [nvarchar](30) NOT NULL,
+	[pass] [nvarchar](max) NOT NULL,
+	[auth] [nvarchar](max) NOT NULL,
+	[birth] [date] NOT NULL,
+	[fname] [nvarchar](max) NOT NULL,
+	[sname] [nvarchar](max) NOT NULL,
+	[tname] [nvarchar](max) NOT NULL,
+	[adr] [varchar](max) NULL,
+	[gender] [nvarchar](max) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[username] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[j_o_b]  WITH CHECK ADD  CONSTRAINT [FK__j_o_b__b_id__24927208] FOREIGN KEY([b_id])
+REFERENCES [dbo].[books] ([b_id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[j_o_b] CHECK CONSTRAINT [FK__j_o_b__b_id__24927208]
+GO
+ALTER TABLE [dbo].[j_o_b]  WITH CHECK ADD FOREIGN KEY([o_id])
+REFERENCES [dbo].[orders] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[o_ph]  WITH CHECK ADD FOREIGN KEY([o_id])
+REFERENCES [dbo].[orders] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[oemail]  WITH CHECK ADD FOREIGN KEY([oid])
+REFERENCES [dbo].[orders] ([id])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[u_email]  WITH CHECK ADD FOREIGN KEY([id_user])
+REFERENCES [dbo].[users] ([username])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[u_ph]  WITH CHECK ADD FOREIGN KEY([id_us])
+REFERENCES [dbo].[users] ([username])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
